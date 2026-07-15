@@ -23,7 +23,8 @@ let authSchema=mongoose.Schema({
     },
     role:{
         type:String,
-        required:true,
+        required:false
+        
     },
     
 });

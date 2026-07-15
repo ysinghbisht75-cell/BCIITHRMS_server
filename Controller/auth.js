@@ -91,7 +91,7 @@ let Login =  async (req,res) => {
         let existing_user = await auth_data.findOne({email:email})
 
         if(!existing_user){
-            return response
+            return res
                 .status(404)
                 .json({
                         success: false,
@@ -127,11 +127,12 @@ let Login =  async (req,res) => {
         })
 
     }catch(error){
+    console.error(error);
 
-        return res.status(500).json({
-            success: false,
-            message: "Something went wrong"
-    })
+    return res.status(500).json({
+        success: false,
+        message: error.message
+    });
 }
 }
 module.exports = {Login,SignUp};
